@@ -1,24 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { ProcessService } from '../services/processes/processes.service';
 import { Process } from '../services/processes/processes';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-update-process',
+  templateUrl: './update-process.component.html',
+  styleUrls: ['./update-process.component.scss']
 })
-export class UserProfileComponent implements OnInit {
+export class UpdateProcessComponent implements OnInit {
 
+  id: number;
   process: Process = new Process();
   constructor(private processService: ProcessService,
+    private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+
+    this.processService.getProcess(this.id).subscribe(data => {
+      this.process = data;
+    }, error => console.log(error));
   }
 
-  saveProcess(){
+  updateProcessById(){
     const formData = new FormData();
 formData.append('processName', this.process.processName);
 formData.append('processDpt', this.process.processDpt);
@@ -34,26 +41,20 @@ formData.append('processStrategyStatus', this.process.processStrategyStatus);
  formData.append('processGmStatus', this.process.processGmStatus);
 formData.append('processStatus', this.process.processStatus); 
 formData.append('image', this.process.image);
-this.processService.createProcess(formData).subscribe( data =>{
+this.processService.updateProcess(this.id,formData).subscribe( data =>{
     // Display the success alert
     Swal.fire({
       icon: 'success',
       title: 'Success!',
-      text: 'The process has been created successfully.',
+      text: 'The process has been updated successfully.',
     });
   console.log(data);
   this.goToProcessList();
 },
-error => {
-  // Display the error alert
-  Swal.fire({
-    icon: 'warning',
-    title: 'Error!',
-    text: error.message,
-  });
-  console.log(error);
-});
-}
+error => 
+console.log(error));
+
+  }
 
   goToProcessList(){
     this.router.navigate(['../table-list']);
@@ -61,27 +62,6 @@ error => {
   
   onSubmit(){
     console.log(this.process);
-    this.saveProcess();
+    this.updateProcessById();
   }
 }
-
-
-
-
-
-/* import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
-})
-export class UserProfileComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
- */

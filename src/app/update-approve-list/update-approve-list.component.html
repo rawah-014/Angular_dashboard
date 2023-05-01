@@ -8,8 +8,6 @@
             <h4 class="card-title">Processes Overview</h4>
           </div>
           <div class="card-body">
-            <input type="text" [(ngModel)]="searchTerm" placeholder="Search...">
-
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead class="text-primary">
@@ -22,8 +20,7 @@
                   <th>Details</th>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let process of processes | filter:searchTerm | paginate: { itemsPerPage: 5, currentPage: currentPage }; let i = index;">
-                 
+                  <tr *ngFor = "let process of processes ">
                     <td>{{process.id}}</td>
                     <td>{{process.processName}}</td>
                     <td>{{process.processDptSection}}</td>
@@ -54,7 +51,6 @@
                  
                 </tbody>
               </table>
-              <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
             </div>
           </div>
         </div>

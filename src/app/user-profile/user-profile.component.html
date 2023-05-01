@@ -10,19 +10,42 @@
                       
                   </div>
                   <div class="card-body">
-                      <form>
+                      <form (ngSubmit) = "onSubmit()">
                      
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
                                   <mat-label>Process Name</mat-label>
-                                  <input matInput placeholder="process title" >
+                                  <input matInput placeholder="process title" 
+                                  id = "processName"
+                [(ngModel)] = "process.processName" name = "processName"
+                                  >
                                 </mat-form-field>
                               </div>
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
+                                  <mat-label>Department</mat-label>
+                                  <input matInput placeholder="process title" 
+                                  id = "processDpt"
+                [(ngModel)] = "process.processDpt" name = "processDpt"
+                                  >
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <mat-label>Department Section</mat-label>
+                                  <input matInput placeholder="process title" 
+                                  id = "processDptSection"
+                [(ngModel)] = "process.processDptSection" name = "processName"
+                                  >
+                                </mat-form-field>
+                              </div> 
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
                                   <mat-label>Process Owner</mat-label>
-                                  <input matInput placeholder="process title" >
+                                  <input matInput placeholder="Department owning this process" 
+                                  id = "processOwner"
+                                  [(ngModel)] = "process.processOwner" name = "processOwner">
                                 </mat-form-field>
                               </div>
                           </div>
@@ -30,13 +53,19 @@
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
                                 <mat-label>Process Description</mat-label>
-                                <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                                <textarea matInput placeholder="brief description of the process"
+                                id = "processDescription"
+                                [(ngModel)] = "process.processDescription" name = "processDescription"
+                                ></textarea>
                               </mat-form-field>
                             </div>
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
                                 <mat-label>Process Objective</mat-label>
-                                <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                                <textarea matInput placeholder="Process goals and outcomes"
+                                id = "processObjective"
+                                [(ngModel)] = "process.processObjective" name = "processObjective"
+                                ></textarea>
                               </mat-form-field>
                             </div>
                         </div>
@@ -46,13 +75,19 @@
                           <div class="col-md-6">
                             <mat-form-field class="example-full-width">
                               <mat-label>Input</mat-label>
-                              <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                              <textarea matInput placeholder="Input information or documents required for the process"
+                              id = "processInput"
+                              [(ngModel)] = "process.processInput" name = "processInput"
+                              ></textarea>
                             </mat-form-field>
                           </div>
                           <div class="col-md-6">
                             <mat-form-field class="example-full-width">
                               <mat-label>Output</mat-label>
-                              <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                              <textarea matInput placeholder="Output information or documents generated by the process"
+                              id = "processOutput"
+                              [(ngModel)] = "process.processOutput" name = "processOutput"
+                              ></textarea>
                             </mat-form-field>
                           </div>
                       </div>
@@ -60,22 +95,35 @@
                         <div class="col-md-6">
                           <mat-form-field class="example-full-width">
                             <mat-label>Customers</mat-label>
-                            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                            <textarea matInput placeholder="Process stockholders"
+                            id = "processCustomer"
+                            [(ngModel)] = "process.processCustomer" name = "processCustomer"
+                            ></textarea>
                           </mat-form-field>
                         </div>
                         <div class="col-md-6">
                           <mat-form-field class="example-full-width">
                             <mat-label>Success Measures KPI</mat-label>
-                            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                            <textarea matInput placeholder="Deliverable’s success percentage"
+                            id = "processKpi"
+                            [(ngModel)] = "process.processKpi" name = "processKpi"
+                            ></textarea>
                           </mat-form-field>
                         </div>
+                        <input type="hidden"  id = "processStrategyStatus"
+                        [(ngModel)] = "process.processStrategyStatus" name = "processStrategyStatus" value="Not Approved"/>
+                        <input type="hidden"  id = "processGmStatus"
+                        [(ngModel)] = "process.processGmStatus" name = "processGmStatus" value="Not Approved"/>
+                        <input type="hidden"  id = "procesStatus"
+                        [(ngModel)] = "process.processStatus" name = "processStatus" value="For Review"/>
                     </div>
                     <h4 class="card-title mt-4" style=" font-weight: bold;">Process Chart</h4>
                     <div class="row">
                       <div class="col-md-6">
                         <mat-form-field class="example-full-width">
                           <mat-label></mat-label>
-                          <input matInput  type="file" >
+                          <input matInput  type="file" id = "image"
+                          [(ngModel)] = "process.image" name = "image">
                         </mat-form-field>
                       </div>
                     
