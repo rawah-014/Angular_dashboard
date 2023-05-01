@@ -1,34 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-
-declare const $: any;
-declare interface RouteInfo {
-    path: string;
-    title: string;
-    icon: string;
-    class: string;
-}
-export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'table-list',  icon: 'settings', class: '' },
-    { path: '/user-profile', title: 'Create Process',  icon:'library_books', class: '' },
-    { path: '/table-list', title: 'Processes',  icon:'content_paste', class: '' },
-     { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
-     { path: '/upgrade', title: 'table-list',  icon:'unarchive', class: 'active-pro' }, /*
-    { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' } */,
-];
+import { DepartmentService } from '../services/departments/departments.service';
+import { Department } from '../services/departments/departments';
 
 @Component({
-  selector: 'app-table-list',
+  selector: 'app-user-list',
   templateUrl: './departments.component.html',
   styleUrls: ['./departments.component.css']
 })
 export class DepartmentsComponent implements OnInit {
+  departments : Department[] = [];
 
-  constructor() { }
+  constructor(private departmentsService: DepartmentService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.departmentsService.getAll().subscribe((data: Department[]) => {
+      this.departments = data;
+    });
   }
-
 }

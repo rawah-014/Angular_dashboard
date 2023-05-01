@@ -17,36 +17,13 @@
                   <th>Number of Processes</th>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Dakota Rice</td>
-                    <td>Niger</td>
-                    <td>Oud-Turnhout</td>
+                  <tr *ngFor = "let department of departments ">
+                    <td>{{department.id}}</td>
+                    <td>{{department.dptName}}</td>
+                    <td>{{department.dptSection}}</td>
+                    <td>{{department.numProcesses}}</td>
                 
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Minerva Hooper</td>
-                    <td>Curaçao</td>
-                    <td>Sinaai-Waas</td>
-                   
-
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Sage Rodriguez</td>
-                    <td>Netherlands</td>
-                    <td>Baileux</td>
-                  
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Philip Chaney</td>
-                    <td>Korea, South</td>
-                    <td>Overland Park</td>
-                  
-                  </tr>
-                 
                 </tbody>
               </table>
             </div>

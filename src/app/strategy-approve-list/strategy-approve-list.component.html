@@ -1,0 +1,58 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Processes Overview</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead class="text-primary">
+                  <th>ID</th>
+                  <th>Process Name</th>
+                  <th>Department</th>
+                  <th>Section</th>
+                  <th>Tasks</th>
+                  <th>Status</th>
+                  <th>Details</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let process of processes ">
+                    <td>{{process.id}}</td>
+                    <td>{{process.processName}}</td>
+                    <td>{{process.processDptSection}}</td>
+                    <td>{{process.processDpt}}</td>
+                    <td>
+                    <a routerLink="../create-tasks/{{process.id}}" class="btn btn-sm btn-round btn-fill btn-primary">Add</a>
+                    </td>
+                    <td>{{process.processStatus}}</td>
+               
+                    <td>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">settings</i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                <a  routerLink="../process-details/{{process.id}}"class="dropdown-item" >View</a>
+                                <a  routerLink="../tasks/{{process.id}}"class="dropdown-item" >View Tasks</a>
+                                <a  routerLink="../update-process/{{process.id}}"class="dropdown-item" >Update Process</a>
+                               <!--  <a class="dropdown-item"  routerLink="../upgrade">Flow Chart</a> -->
+                            <!--     <a class="dropdown-item" routerLink="../icons" *ngIf="">Modify Process</a> -->
+                                <a (click) = "deleteProcess(process.id)"   class="dropdown-item">Delete Process</a>
+                              <!--   <a routerLink="/user/{{id}}/details"></a> -->
+                            </div>
+                        </div>
+                    </td>
+                  </tr>
+              
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+

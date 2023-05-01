@@ -10,18 +10,20 @@
                       
                   </div>
                   <div class="card-body">
-                    <form>
+                    <form (ngSubmit) = "onSubmit()">
                       <div class="row">
                         <div class="col-md-6">
                           <mat-form-field class="example-full-width">
                             <mat-label>Task Number</mat-label>
-                            <input matInput placeholder="process title" type="number" />
+                            <input matInput placeholder="process title" type="number" name="id" 
+                            [(ngModel)] = "task.id" />
                           </mat-form-field>
                         </div>
                         <div class="col-md-6">
                           <mat-form-field class="example-full-width">
                             <mat-label>Task Name</mat-label>
-                            <input matInput placeholder="process title" />
+                            <input matInput placeholder="process title" name="taskName" 
+                            [(ngModel)] = "task.taskName"/>
                           </mat-form-field>
                         </div>
                       </div>
@@ -30,8 +32,9 @@
                           <mat-form-field class="example-full-width">
                             <mat-label>Task Description/SOP</mat-label>
                             <textarea
+                            [(ngModel)] = "task.taskDescription"
                               matInput
-                              placeholder="Ex. It makes me feel..."
+                              placeholder="Ex. It makes me feel..." name="taskDescription"
                             ></textarea>
                           </mat-form-field>
                         </div>
@@ -39,8 +42,22 @@
                           <mat-form-field class="example-full-width">
                             <mat-label>WLA/OLA</mat-label>
                             <textarea
+                            [(ngModel)] = "task.taskWla"
                               matInput
-                              placeholder="Ex. It makes me feel..."
+                              placeholder="Ex. It makes me feel..." name="taskWla"
+                            ></textarea>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                      
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width">
+                            <mat-label>Task Owner</mat-label>
+                            <textarea
+                            [(ngModel)] = "task.taskOwner"
+                              matInput
+                              placeholder="Ex. It makes me feel..." name="taskOwner"
                             ></textarea>
                           </mat-form-field>
                         </div>

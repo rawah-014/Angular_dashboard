@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Tasks</h4>
+              <p class="card-category"></p>
+            </div>
+            <div class="card-body">
+              <div class="container-fluid">
+                <form  [formGroup]="addmore">
+                <div class="card">
+                  
+                  <div class="card-body">
+              
+              
+                      <div class="row">
+                        
+                       
+                        <!-- <div class="col-sm-1">
+                          <button mat-mini-fab color="primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                        </div> -->
+                      </div>
+                      <!-- <form [formGroup]="addmore" #indentAddForm=ngForm  (ngSubmit)="onSubmit()" > -->
+                              <div class="row">
+                                <div class="col-sm-12 table-responsive" formArrayName="itemRows">
+                                  <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th style="white-space: nowrap;padding-right: 4em; float:center"><span class="required-field"></span>Task Number</th>
+                                        <th style="white-space: nowrap;padding-right: 4em;float:center">Task Name </th>
+                                        <th style="white-space: nowrap;padding-right: 4em;float:center">Descripition/SOP</th>
+                                        <th style="white-space: nowrap;padding-right: 4em;float:center">WLA/SLA</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let itemrow of addmore.controls.itemRows['controls']; let i=index"  [formGroupName]="i">
+              
+                                        <td style="white-space: nowrap;"> <input style="padding-bottom: 3.4em;" id="taskName{{i}}" formControlName="taskName" class="form-control"></td>
+                                         <td> <textarea id="taskDescription{{i}}" formControlName="taskDescription" class="form-control reset"></textarea></td>
+                                        <td> <textarea formControlName="taskWla" class="form-control reset"></textarea></td>
+                                        <td> <textarea formControlName="taskOwner" class="form-control reset"></textarea></td>
+                                        <td> <button *ngIf="addmore.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger"><i class="fa fa-minus-circle" aria-hidden="true"></i></button></td>
+                                      </tr>
+                                    </tbody>
+                                    <tfoot class="mt-4">
+                                    
+                                      <tr class="col-md-12"><td> <button type="button" (click)="addNewRow()" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></td></tr>
+                                    </tfoot>
+                                  </table>
+                              </div>
+              
+                            </div>
+                            <!-- </form> -->
+              
+                  </div>
+                  <div class="card-footer">
+                    <p class="col-md-8"></p>
+                     <button class=" btn btn-primary" mat-raised-button (click)="onSubmit()" >Submit</button>
+                  </div>
+                </div>
+              </form>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -7,8 +7,8 @@
             <div class="card-icon">
               <i class="material-icons">assessment</i>
             </div>
-            <p class="card-category">Received</p>
-            <h3 class="card-title">50</h3>
+            <p class="card-category">Received For Review</p>
+            <h3 class="card-title">{{ number }}</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
@@ -24,8 +24,8 @@
             <div class="card-icon">
               <i class="material-icons">speaker_notes</i>
             </div>
-            <p class="card-category">Review & Edit</p>
-            <h3 class="card-title">245</h3>
+            <p class="card-category">Processes That needs Update</p>
+            <h3 class="card-title">{{ updateCount }}</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
@@ -41,7 +41,7 @@
               <i class="material-icons">verified_user</i>
             </div>
             <p class="card-category">Strategy Approve</p>
-            <h3 class="card-title">75</h3>
+            <h3 class="card-title">{{ stApprovedCount }}</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
@@ -57,7 +57,7 @@
               <i class="material-icons">verified_user</i>
             </div>
             <p class="card-category">GM Approve</p>
-            <h3 class="card-title">45</h3>
+            <h3 class="card-title">{{ gmApprovedCount }}</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
@@ -68,513 +68,85 @@
       </div>
     </div>
     <div class="row">
-  <!--     <div class="col-md-4">
-        <div class="card card-chart">
-          <div class="card-header card-header-success">
-            <div class="ct-chart" id="dailySalesChart"></div>
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">Daily Sales</h4>
-            <p class="card-category">
-              <span class="text-success"
-                ><i class="fa fa-long-arrow-up"></i> 55%
-              </span>
-              increase in today sales.
-            </p>
+   
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">speaker_notes</i>
+            </div>
+            <p class="card-category">Processes has been updated</p>
+            <h3 class="card-title">{{ updateApprovedCount }}</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons">access_time</i> updated 4 minutes ago
+              <i class="material-icons">date_range</i> To be Review and Approved by IC
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">verified_user</i>
+            </div>
+            <p class="card-category">Internal Control Approve</p>
+            <h3 class="card-title">{{ icApprovedCount }}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">verified_user</i> To be Approved by Stratefy
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="row">
+
       <div class="col-md-6">
         <div class="card card-chart">
           <div class="card-header card-header-info">
             <div class="ct-chart" id="websiteViewsChart"></div>
           </div>
           <div class="card-body">
-            <h4 class="card-title">Process Completion</h4>
-            <p class="card-category">Last Campaign Performance</p>
+            <h4 class="card-title">Departments Strategy Approved</h4>
+            <p class="card-category">Chart to show Compare chart for all the processes that has been approved by ST</p>
           </div>
-          <div class="card-footer">
+<!--           <div class="card-footer">
             <div class="stats">
               <i class="material-icons">access_time</i> campaign sent 2 days ago
             </div>
+          </div> -->
+        </div> 
+      </div>
+      <div class="col-md-6">
+        <div class="card card-chart">
+          <div class="card-header card-header-success">
+            <div class="ct-chart" id="IcApprovedViewsChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Departments IC Approved</h4>
+            <p class="card-category">Chart to show Compare chart for all the processes that has been approved by IC</p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card card-chart">
+          <div class="card-header card-header-success">
+            <div class="ct-chart" id="GmApprovedViewsChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Departments GM Approved</h4>
+            <p class="card-category">Chart to show Compare chart for all the processes that has been approved by GM</p>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="card card-chart">
-          <div class="card-header card-header-warning">
-            <div class="ct-chart" id="completedTasksChart"></div>
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">Email Subscriptions</h4>
-            <p class="card-category">Last Campaign Performance</p>
-          </div>
-          <div class="card-footer">
-            <div class="stats">
-              <i class="material-icons">access_time</i> campaign sent 2 days ago
-            </div>
-          </div>
-        </div>
-      </div>
-<!--       <div class="col-md-4">
-        <div class="card card-chart">
-          <div class="card-header card-header-danger">
-            <div class="ct-chart" id="completedTasksChart"></div>
-          </div>
-          <div class="card-body">
-            <h4 class="card-title">Completed Tasks</h4>
-            <p class="card-category">Last Campaign Performance</p>
-          </div>
-          <div class="card-footer">
-            <div class="stats">
-              <i class="material-icons">access_time</i> campaign sent 2 days ago
-            </div>
-          </div>
-        </div>
-      </div> -->
-    </div>
-    <div class="row">
-    <!--   <div class="col-lg-6 col-md-12">
-        <div class="card">
-          <div class="card-header card-header-tabs card-header-primary">
-            <div class="nav-tabs-navigation">
-              <div class="nav-tabs-wrapper">
-                <span class="nav-tabs-title">Tasks:</span>
-                <ul class="nav nav-tabs" data-tabs="tabs">
-                  <li class="nav-item">
-                    <a
-                      mat-button
-                      class="nav-link active"
-                      href="#profile"
-                      data-toggle="tab"
-                    >
-                      <i class="material-icons">bug_report</i> Bugs
-                      <div class="ripple-container"></div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      mat-button
-                      class="nav-link"
-                      href="#messages"
-                      data-toggle="tab"
-                    >
-                      <i class="material-icons">code</i> Website
-                      <div class="ripple-container"></div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      mat-button
-                      class="nav-link"
-                      href="#settings"
-                      data-toggle="tab"
-                    >
-                      <i class="material-icons">cloud</i> Server
-                      <div class="ripple-container"></div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="tab-content">
-              <div class="tab-pane active" id="profile">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value=""
-                              checked
-                            />
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>
-                        Sign contract for "What are conference organizers afraid
-                        of?"
-                      </td>
-                      <td class="td-actions text-right">
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Edit Task"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-primary btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Remove"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-danger btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>
-                        Lines From Great Russian Literature? Or E-mails From My
-                        Boss?
-                      </td>
-                      <td class="td-actions text-right">
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Edit Task"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-primary btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Remove"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-danger btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>
-                        Flooded: One year later, assessing what was lost and
-                        what was found when a ravaging rain swept through metro
-                        Detroit
-                      </td>
-                      <td class="td-actions text-right">
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Edit Task"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-primary btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Remove"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-danger btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value=""
-                              checked
-                            />
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>
-                        Create 4 Invisible User Experiences you Never Knew About
-                      </td>
-                      <td class="td-actions text-right">
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Edit Task"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-primary btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Remove"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-danger btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="tab-pane" id="messages">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value=""
-                              checked
-                            />
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>
-                        Flooded: One year later, assessing what was lost and
-                        what was found when a ravaging rain swept through metro
-                        Detroit
-                      </td>
-                      <td class="td-actions text-right">
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Edit Task"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-primary btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Remove"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-danger btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>
-                        Sign contract for "What are conference organizers afraid
-                        of?"
-                      </td>
-                      <td class="td-actions text-right">
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Edit Task"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-primary btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Remove"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-danger btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="tab-pane" id="settings">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>
-                        Lines From Great Russian Literature? Or E-mails From My
-                        Boss?
-                      </td>
-                      <td class="td-actions text-right">
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Edit Task"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-primary btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Remove"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-danger btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value=""
-                              checked
-                            />
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>
-                        Flooded: One year later, assessing what was lost and
-                        what was found when a ravaging rain swept through metro
-                        Detroit
-                      </td>
-                      <td class="td-actions text-right">
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Edit Task"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-primary btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Remove"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-danger btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              value=""
-                              checked
-                            />
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>
-                        Sign contract for "What are conference organizers afraid
-                        of?"
-                      </td>
-                      <td class="td-actions text-right">
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Edit Task"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-primary btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button
-                          mat-raised-button
-                          type="button"
-                          matTooltip="Remove"
-                          [matTooltipPosition]="'above'"
-                          class="btn btn-danger btn-link btn-sm btn-just-icon"
-                        >
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <div class="col-lg-12 col-md-12">
         <div class="card">
           <div class="card-header card-header-success">
             <h4 class="card-title">Departments Informations</h4>
@@ -583,29 +155,65 @@
           <div class="card-body table-responsive">
             <table class="table table-hover">
               <thead class="text-success">
-                <th>ID</th>
+                <!--  <th>ID</th> -->
                 <th>Department Name</th>
-                <th>Submitted</th> 
-                <th>Final Approved</th>
+                <th>For Review</th>
+               <!--  <th>Final Approved</th> -->
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>FM Support</td>
-                  <td>20%</td>
-                  <td>10</td>
+                <tr *ngFor="let review of review">
+                  <td>{{ review.department }}</td>
+                  <td>{{ review.count }}</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>FM Support</td>
-                    <td>20%</td>
-                    <td>10%</td>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class=" col-md-6">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title">Departments Informations</h4>
+            <p class="card-category">for 2023</p>
+          </div>
+          <div class="card-body table-responsive">
+            <table class="table table-hover">
+              <thead class="text-success">
+                <!--  <th>ID</th> -->
+                <th>Department Name</th>
+                <th>For Update Approve</th>
+               <!--  <th>Final Approved</th> -->
+              </thead>
+              <tbody>
+                <tr *ngFor="let updateApprove of updateApprove">
+                  <td>{{ updateApprove.department }}</td>
+                  <td>{{ updateApprove.count }}</td>
                 </tr>
-                <tr>
-                    <td>3</td>
-                    <td>FM Support</td>
-                    <td>20%</td>
-                    <td>10%</td>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title">Departments Informations</h4>
+            <p class="card-category">for 2023</p>
+          </div>
+          <div class="card-body table-responsive">
+            <table class="table table-hover">
+              <thead class="text-success">
+                <!--  <th>ID</th> -->
+                <th>Department Name</th>
+                <th>For Update</th>
+               <!--  <th>Final Approved</th> -->
+              </thead>
+              <tbody>
+                <tr *ngFor="let update of update">
+                  <td>{{ update.department }}</td>
+                  <td>{{ update.count }}</td>
                 </tr>
               </tbody>
             </table>

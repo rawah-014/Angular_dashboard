@@ -8,51 +8,63 @@
             <p class="card-category"></p>
           </div>
           <div class="card-body">
-            <form>
-              <div class="row">
-                <div class="col-md-6">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Task Number</mat-label>
-                    <input matInput placeholder="process title" type="number" />
-                  </mat-form-field>
+            <div class="container-fluid">
+              <form  [formGroup]="addmore">
+              <div class="card">
+                
+                <div class="card-body">
+            
+            
+                    <div class="row">
+                      
+                     
+                      <!-- <div class="col-sm-1">
+                        <button mat-mini-fab color="primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                      </div> -->
+                    </div>
+                    <!-- <form [formGroup]="addmore" #indentAddForm=ngForm  (ngSubmit)="onSubmit()" > -->
+                            <div class="row">
+                              <div class="col-sm-12 table-responsive" formArrayName="itemRows">
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th style="white-space: nowrap;padding-right: 4em; float:center"><span class="required-field"></span>Task Number</th>
+                                      <th style="white-space: nowrap;padding-right: 4em;float:center">Task Name </th>
+                                      <th style="white-space: nowrap;padding-right: 4em;float:center">Descripition/SOP</th>
+                                      <th style="white-space: nowrap;padding-right: 4em;float:center">WLA/SLA</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let itemrow of addmore.controls.itemRows['controls']; let i=index"  [formGroupName]="i">
+            
+                                      <td style="white-space: nowrap;"> <input style="padding-bottom: 3.4em;" id="timeRange{{i}}" formControlName="timeRange" class="form-control"></td>
+                                     <!-- <td style="white-space: nowrap;"> <input readonly id="learn{{i}}" formControlName="learn" class="form-control"></td> -->
+                                      <!-- <td> <input formControlName="bf_stock" readonly id="bfStock{{i}}" class="form-control reset"></td> -->
+                                       <td> <textarea id="learn{{i}}" formControlName="learn" class="form-control reset"></textarea></td>
+                                      <td> <textarea formControlName="descripition" class="form-control reset"></textarea></td>
+                                      <td> <textarea formControlName="suggestion" class="form-control reset"></textarea></td>
+                                      <td> <button *ngIf="addmore.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger"><i class="fa fa-minus-circle" aria-hidden="true"></i></button></td>
+                                    </tr>
+                                  </tbody>
+                                  <tfoot class="mt-4">
+                                  
+                                    <tr class="col-md-12"><td> <button type="button" (click)="addNewRow()" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></td></tr>
+                                  </tfoot>
+                                </table>
+                            </div>
+            
+                          </div>
+                          <!-- </form> -->
+            
                 </div>
-                <div class="col-md-6">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Task Name</mat-label>
-                    <input matInput placeholder="process title" />
-                  </mat-form-field>
+                <div class="card-footer">
+                  <p class="col-md-8"></p>
+                   <button class=" btn btn-primary" mat-raised-button >Submit</button>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Task Description/SOP</mat-label>
-                    <textarea
-                      matInput
-                      placeholder="Ex. It makes me feel..."
-                    ></textarea>
-                  </mat-form-field>
-                </div>
-                <div class="col-md-6">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>WLA/OLA</mat-label>
-                    <textarea
-                      matInput
-                      placeholder="Ex. It makes me feel..."
-                    ></textarea>
-                  </mat-form-field>
-                </div>
-              </div>
-
-              <button
-                mat-raised-button
-                type="submit"
-                class="btn btn-primary pull-right"
-              >
-                Submit
-              </button>
-              <div class="clearfix"></div>
             </form>
+            
+            </div>
           </div>
         </div>
       </div>
